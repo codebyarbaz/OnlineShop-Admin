@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+#container {
+  border: 1px solid silver;
+  border-radius: 3px;
+  margin: 0px 10px;
+}
+
+#container .nav {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  transition: 0.3s linear;
+  border: 1px solid silver;
+  border-radius: 3px;
+  padding: 8px 20px;
+  margin: 0px 10px;
+  list-style: none;
+  display: inline-block;
+}
+
+ul li:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
+
+.input {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid silver;
+  border-radius: 3px;
+}
+
+.button {
+  cursor: pointer;
+  margin: 0px 10px;
+  text-align: center;
+  border: 1px solid silver;
+  border-radius: 3px;
+  padding: 8px 20px;
+  /* height: 25px; */
+}
+
+/* Home CSS */
+
+.title {
+  text-align: center;
+}
+
+.homecontent {
+  display: flex;
+  justify-content: center;
+}
+
+.homecontent .addmenu,
+.allmenus {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid silver;
+  border-radius: 3px;
+  padding: 20px;
+  margin: 10px 20px;
+}
+
+.homecontent .addmenu .title {
+  font-size: 16px;
+}
+
+#allmenus .menu {
+  display: block;
+}
+
+.homecontent .allmenus .menus {
+  text-align: left;
+}
+
+.homecontent .allmenus .updatemenu {
+  margin: 20px 0px;
+}
+
+.submenubutton {
+  margin: 20px 10px;
+}
+
+.selectmenu {
+  padding: 7px 10px;
+}

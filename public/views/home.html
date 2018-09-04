@@ -1,0 +1,82 @@
+<div id="container">
+    <div class="nav">
+        <nav>
+            <ul>
+                <li><a ng-href="#/">Home</li></a>
+                <li><a ng-href="#/menus">Menus</a></li>
+                <li><a ng-href="#/products">Products</a></li>
+                <li><a ng-href="#/user">User</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="content">
+        <hr>
+        <h2 class="title">Main Menus</h2>
+        <div class="homecontent">
+            <div class="addmenu">
+                <p class="title">Add menu to site</p>
+                <form action="/menu/addnewmenu" method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                <input class="input" type="text" name="newmenu" placeholder="Enter New Menu">
+                                <button class="button">Add Menu</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="allmenus">
+                <button class="button" ng-click="getAllMenus()">Show All Menus</button>
+                <div ng-show="update" class="updatemenu">
+                    <input type="text" class="input" ng-model="editedmenu" placeholder="Edit Menu Here">
+                    <button class="button" ng-click="editMenu(editedmenu)">Done</button>
+                </div>
+                <div class="menus" ng-repeat="menu in data">
+                    <span class="menu">{{menu.menu}}</span>
+                    <span class="cursor" ng-click="deleteMenu(menu._id)">X</span>
+                    <span class="cursor" ng-click="updateMenu(menu._id)">--</span>
+                </div>
+                <span>{{submenudata.data}}</span>
+                <span>{{submenuerr}}</span>
+                <span>{{menudata.data}}</span>
+                <span>{{menuerr}}</span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="submenus">
+        <h2 class="title">Sub Menus</h2>
+        <div class="homecontent">
+            <div class="addmenu">
+                <p class="title">Add sub-menu to site</p>
+                <form action="/menu/addnewsubmenu" method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                <input class="input" type="text" name="newsubmenu" placeholder="Enter New SubMenu">
+                                <select class="selectmenu" name="mainmenu" id="">
+                                    <option value="Select Main Menu">Select Main Menu</option>
+                                    <option value="{{allmenu.menu}}" ng-repeat="allmenu in allmenus">{{allmenu.menu}}</option>
+                                </select>
+                                <button class="button submenubutton">Add Sub Menu</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="allmenus">
+                <button class="button" ng-click="getAllSubMenus()">Show All SubMenus</button>
+                <div ng-show="update" class="updatemenu">
+                    <input type="text" class="input" ng-model="editedsubmenu" placeholder="Edit SubMenu Here">
+                    <button class="button" ng-click="editSubMenu(editedsubmenu)">Done</button>
+                </div>
+                <div class="menus" ng-repeat="submenu in data">
+                    <span class="menu">{{submenu.submenu}}</span>
+                    <span class="cursor" ng-click="deleteSubMenu(submenu._id)">X</span>
+                    <span class="cursor" ng-click="updateSubMenu(submenu._id)">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
