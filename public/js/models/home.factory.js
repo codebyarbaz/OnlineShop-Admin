@@ -41,6 +41,17 @@ app.factory("homeFactory", [
           }
         );
         return defer.promise;
+      },
+      addSubMenu(submenuObject) {
+        let defer = $q.defer();
+        $http.post("/addnewsubmenu", submenuObject).then(
+          response => {
+            defer.resolve(response);
+          },
+          err => {
+            defer.reject(err);
+          }
+        );
       }
     };
     console.log("homeFactory Loaded");

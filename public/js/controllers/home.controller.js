@@ -53,5 +53,26 @@ app.controller("homeController", [
         }
       );
     };
+    $scope.selectmainmenu = false;
+    $scope.addSubMenu = () => {
+      if ($scope.mainmenu == null) {
+        $scope.selectmainmenu = true;
+      }
+      if ($scope.newsubmenu) {
+        let newsubmenu = $scope.newsubmenu;
+        let mainmenu = $scope.mainmenu.menu;
+        let submenuObject = { newsubmenu, mainmenu };
+        console.log("Object: ", submenuObject);
+        homeFactory.addSubMenu(submenuObject);
+        // promise.then(
+        //   data => {
+        //     $scope.submenuinfo = data.data;
+        //   },
+        //   err => {
+        //     $scope.submenuinfo = data.data;
+        //   }
+        // );
+      }
+    };
   }
 ]);

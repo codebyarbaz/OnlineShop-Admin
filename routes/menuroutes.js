@@ -1,6 +1,7 @@
 const express = require("express");
 const menurouter = express.Router();
 const menuOperations = require("../db/operations/menuOperations");
+const submenuOperations = require("../db/operations/submenuOperations");
 
 // Menu Operations----------------------------- START
 
@@ -26,5 +27,14 @@ menurouter.post("/editmenu", (req, res, next) => {
 });
 
 // Menu Operations----------------------------- END
+
+// SubMenu Operations ----------------------- Start
+
+menurouter.post("/addnewsubmenu", (req, res, next) => {
+  let submenuObject = req.body;
+  submenuOperations.addSubMenu(submenuObject, res);
+});
+
+// SubMenu Operations ---------------------------- End
 
 module.exports = menurouter;
