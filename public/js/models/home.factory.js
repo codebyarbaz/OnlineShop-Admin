@@ -17,7 +17,6 @@ app.factory("homeFactory", [
       },
       deleteMenu(id) {
         let idObject = { id };
-        console.log("IDObject is ", idObject);
         let defer = $q.defer();
         $http.post("/deletemenu", idObject).then(
           response => {
@@ -52,9 +51,45 @@ app.factory("homeFactory", [
             defer.reject(err);
           }
         );
+        return defer.promise;
+      },
+      getAllSubMenus(mainmenuObject) {
+        let defer = $q.defer();
+        $http.post("/getallsubmenus", mainmenuObject).then(
+          response => {
+            defer.resolve(response);
+          },
+          err => {
+            defer.reject(err);
+          }
+        );
+        return defer.promise;
+      },
+      deleteSubMenu(detailsObject) {
+        let defer = $q.defer();
+        $http.post("/deletesubmenu", detailsObject).then(
+          response => {
+            defer.resolve(response);
+          },
+          err => {
+            defer.reject(err);
+          }
+        );
+        return defer.promise;
+      },
+      editSubMenu(menuObject) {
+        let defer = $q.defer();
+        $http.post("/editsubmenu", menuObject).then(
+          response => {
+            defer.resolve(response);
+          },
+          err => {
+            defer.reject(err);
+          }
+        );
+        return defer.promise;
       }
     };
-    console.log("homeFactory Loaded");
     return object;
   }
 ]);

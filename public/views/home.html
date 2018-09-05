@@ -12,10 +12,11 @@
     <div id="content">
         <hr>
         <h2 class="title">Main Menus</h2>
+        <span class="info">Info: After adding new main menu, please contact to your web developer.</span>
         <div class="homecontent">
             <div class="addmenu">
                 <p class="title">Add menu to site</p>
-                <form action="/menu/addnewmenu" method="post">
+                <form action="/addnewmenu" method="post">
                     <table>
                         <tr>
                             <td>
@@ -32,11 +33,12 @@
                     <input type="text" class="input" ng-model="editedmenu" placeholder="Edit Menu Here">
                     <button class="button" ng-click="editMenu(editedmenu)">Done</button>
                 </div>
-                <div class="menus" ng-repeat="menu in data">
+                <div class="menus" ng-repeat="menu in menus">
                     <span class="menu">{{menu.menu}}</span>
                     <span class="cursor" ng-click="deleteMenu(menu._id)">X</span>
                     <span class="cursor" ng-click="updateMenu(menu._id)">--</span>
                 </div>
+                <span class="info">{{menusinfo}}</span>
                 <span>{{submenudata.data}}</span>
                 <span>{{submenuerr}}</span>
                 <span>{{menudata.data}}</span>
@@ -57,28 +59,31 @@
                             <select class="selectmenu" name="mainmenu" ng-model="mainmenu" ng-options="menu.menu for menu in allmenus">
                                 <option value="" ng-selected="true">Select Main Menu</option>
                             </select>
-                            <select ng-show="false">
-                                <option value="Test ">Test</option>
-                                <option value="Test ">Test</option>
-                            </select>
-                            <button class="button submenubutton " ng-click="addSubMenu() ">Add Sub Menu</button>
-                            <span class="info " ng-show="selectmainmenu ">Please select main menu</span>
-                            <span class="info ">{{submenuinfo}}</span>
+                            <button class="button submenubutton" ng-click="addSubMenu()">Add Sub Menu</button>
+                            <span class="info" ng-show="selectmainmenu">Please select main menu</span>
+                            <span class="info">{{submenuinfo}}</span>
                         </td>
                     </tr>
                 </table>
             </div>
-            <div class="allmenus ">
-                <button class="button " ng-click="getAllSubMenus() ">Show All SubMenus</button>
-                <div ng-show="update " class="updatemenu ">
-                    <input type="text " class="input " ng-model="editedsubmenu " placeholder="Edit SubMenu Here ">
-                    <button class="button " ng-click="editSubMenu(editedsubmenu) ">Done</button>
+            <div class="allmenus">
+                <select class="selectmenu" name="mainmenu2" ng-model="mainmenu2" ng-options="menu.menu for menu in allmenus">
+                    <option value="" ng-selected="true">Select Main Menu</option>
+                </select>
+                <button class="button" ng-click="getAllSubMenus()">Show All SubMenus</button>
+                <div ng-show="update2" class="updatemenu">
+                    <input type="text" class="input" ng-model="editedsubmenu2" placeholder="Edit SubMenu Here">
+                    <button class="button" ng-click="editSubMenu2(editedsubmenu2)">Done</button>
                 </div>
-                <div class="menus " ng-repeat="submenu in data ">
-                    <span class="menu ">{{submenu.submenu}}</span>
-                    <span class="cursor " ng-click="deleteSubMenu(submenu._id) ">X</span>
-                    <span class="cursor " ng-click="updateSubMenu(submenu._id) ">--</span>
+                <div class="menus" ng-repeat="submenu in submenusdata">
+                    <span class="menu">{{submenu.name}}</span>
+                    <span class="cursor" ng-click="deleteSubMenu(submenu._id)">X</span>
+                    <span class="cursor" ng-click="updateSubMenu(submenu._id)">--</span>
                 </div>
+                <span class="info">{{submenuupdateinfo}}</span>
+                <span class="info">{{submenusdatainfo}}</span>
+                <span class="info">{{submenusinfo}}</span>
+                <span class="info" ng-show="selectmainsubmenu">Please select main menu</span>
             </div>
         </div>
     </div>

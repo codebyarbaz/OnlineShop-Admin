@@ -35,6 +35,21 @@ menurouter.post("/addnewsubmenu", (req, res, next) => {
   submenuOperations.addSubMenu(submenuObject, res);
 });
 
+menurouter.post("/getallsubmenus", (req, res, next) => {
+  let mainmenuObject = req.body;
+  submenuOperations.getallsubmenus(mainmenuObject, res);
+});
+
+menurouter.post("/deletesubmenu", (req, res, next) => {
+  let detailsObject = req.body;
+  submenuOperations.deletesubmenu(detailsObject, res);
+});
+
+menurouter.post("/editsubmenu", (req, res, next) => {
+  let menuObject = req.body;
+  submenuOperations.editsubmenu(menuObject, res);
+});
+
 // SubMenu Operations ---------------------------- End
 
 module.exports = menurouter;
