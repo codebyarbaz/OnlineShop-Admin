@@ -5,14 +5,15 @@ app.config([
     $locationProvider.hashPrefix("");
     $routeProvider
       .when("/", {
-        templateUrl: "../views/home.html",
-        controller: "homeController"
+        templateUrl: "../views/home.html"
       })
       .when("/menus", {
-        templateUrl: "../views/menus.html"
+        templateUrl: "../views/menus.html",
+        controller: "menuController"
       })
       .when("/products", {
-        templateUrl: "../views/products.html"
+        templateUrl: "../views/products.html",
+        controller: "proController"
       })
       .when("/user", {
         templateUrl: "../views/user.html"

@@ -1,4 +1,4 @@
-app.factory("homeFactory", [
+app.factory("menuFactory", [
   "$http",
   "$q",
   ($http, $q) => {

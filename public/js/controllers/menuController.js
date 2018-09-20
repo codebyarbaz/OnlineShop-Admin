@@ -1,8 +1,8 @@
-app.controller("homeController", [
+app.controller("menuController", [
   "$scope",
-  "homeFactory",
-  function($scope, homeFactory) {
-    let promise = homeFactory.getAllMenus();
+  "menuFactory",
+  function($scope, menuFactory) {
+    let promise = menuFactory.getAllMenus();
     promise.then(
       data => {
         $scope.allmenus = data.data;
@@ -12,7 +12,7 @@ app.controller("homeController", [
       }
     );
     $scope.getAllMenus = () => {
-      let promise = homeFactory.getAllMenus();
+      let promise = menuFactory.getAllMenus();
       promise.then(
         data => {
           if (data.data.length) {
@@ -27,7 +27,7 @@ app.controller("homeController", [
       );
     };
     $scope.deleteMenu = id => {
-      let promise = homeFactory.deleteMenu(id);
+      let promise = menuFactory.deleteMenu(id);
       promise.then(
         data => {
           $scope.menudata = data;
@@ -44,7 +44,7 @@ app.controller("homeController", [
     };
     $scope.editMenu = editedmenu => {
       let id = $scope.editmenuid;
-      let promise = homeFactory.editMenu(id, editedmenu);
+      let promise = menuFactory.editMenu(id, editedmenu);
       promise.then(
         data => {
           $scope.update = false;
@@ -64,7 +64,7 @@ app.controller("homeController", [
           let newsubmenu = $scope.newsubmenu;
           let mainmenu = $scope.mainmenu.menu;
           let submenuObject = { newsubmenu, mainmenu };
-          let promise = homeFactory.addSubMenu(submenuObject);
+          let promise = menuFactory.addSubMenu(submenuObject);
           promise.then(
             data => {
               $scope.submenuinfo = data.data;
@@ -82,7 +82,7 @@ app.controller("homeController", [
         $scope.selectmainsubmenu = true;
       } else {
         let mainmenu = { name: $scope.mainmenu2.menu };
-        let promise = homeFactory.getAllSubMenus(mainmenu);
+        let promise = menuFactory.getAllSubMenus(mainmenu);
         promise.then(
           data => {
             if (data.data.length) {
@@ -99,7 +99,7 @@ app.controller("homeController", [
     };
     $scope.deleteSubMenu = id => {
       let detailsObject = { id, mainmenu: $scope.mainmenu2.menu };
-      let promise = homeFactory.deleteSubMenu(detailsObject);
+      let promise = menuFactory.deleteSubMenu(detailsObject);
       promise.then(
         data => {
           $scope.submenusinfo = data.data;
@@ -120,7 +120,7 @@ app.controller("homeController", [
         mainmenu: $scope.mainmenu2.menu,
         editedmenu
       };
-      let promise = homeFactory.editSubMenu(menuObject);
+      let promise = menuFactory.editSubMenu(menuObject);
       promise.then(
         data => {
           $scope.update2 = false;

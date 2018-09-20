@@ -10,6 +10,67 @@
         </nav>
     </div>
     <div id="content">
-        <h1>Products Section</h1>
+        <div id="products">
+            <div class="addProduct">
+                <form action="/pro/addnewproduct" method="post" enctype="multipart/form-data">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="text" class="input" name="title" placeholder="Enter Product Name" ng-model="proTitle">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" class="price input" name="price" placeholder="Price" ng-model="proPrice">
+                                <input type="number" class="discount input" name="discount" placeholder="Discount"
+                                    ng-model="proDiscount">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="available" class="pincodes input" placeholder="Delivery Available Pincodes (Ex: 110093,110095)"
+                                    ng-model="proAvailablity">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea name="description" cols="60" rows="6" maxlength="250" ng-model="proDescription"
+                                    placeholder="Enter Description Here (Max 250 Words)"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" name="Image_1">
+                                <input type="file" name="Image_2">
+                                <input type="file" name="Image_3">
+                                <input type="file" name="Image_4">
+                                <input type="submit" value="Submit">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea name="specification" cols="80" rows="20" maxlength="550" ng-model="proSpecification"
+                                    placeholder="Enter Product Specification in Details (Max 500 Words)"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <table>
+                    <tr>
+                        <td>
+                            <select class="selectmenu" name="mainmenu" ng-model="mainmenu" ng-options="menu.menu for menu in allmenus"
+                                ng-change="getSubMenus(mainmenu.menu)">
+                                <option value="" ng-selected="true">Select Main Menu</option>
+                            </select>
+                            <select class="selectmenu" name="submenu" ng-model="submenu">
+                                <option value="" ng-selected="true">Select Sub Menu</option>
+                                <option value="{{submenu.name}}" ng-repeat="submenu in submenus">{{submenu.name}}</option>
+                            </select>
+                            <button class="button" ng-click="test(mainmenu.menu,submenu)">Get Menus</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

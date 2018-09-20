@@ -107,3 +107,35 @@ ul li:hover {
 .selectmenu {
   padding: 7px 10px;
 }
+
+/* Product Section --------------------- */
+
+#products .input {
+  width: 400px;
+}
+
+#products .input {
+  width: 100px;
+  padding: 8px;
+  border: 1px solid silver;
+  border-radius: 3px;
+}
+
+#products .price::-webkit-inner-spin-button,
+#products .price::-webkit-outer-spin-button,
+#products .discount::-webkit-inner-spin-button,
+#products .discount::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#products .description {
+  width: 600px;
+  height: 200px;
+  border: 1px solid silver;
+  border-radius: 3px;
+}
+
+#products .pincodes {
+  width: 500px;
+}
