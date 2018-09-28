@@ -110,11 +110,16 @@ ul li:hover {
 
 /* Product Section --------------------- */
 
+#products {
+  margin: 10px 30px;
+}
+
 #products .input {
   width: 400px;
 }
 
-#products .input {
+#products .price,
+.discount {
   width: 100px;
   padding: 8px;
   border: 1px solid silver;
@@ -138,4 +143,10 @@ ul li:hover {
 
 #products .pincodes {
   width: 500px;
+}
+
+#products .specification,
+.description {
+  border: 1px solid silver;
+  border-radius: 3px;
 }
