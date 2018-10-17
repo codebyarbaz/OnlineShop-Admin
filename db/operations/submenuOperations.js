@@ -92,6 +92,7 @@ const subMenuOperations = {
         if (err) {
           res.send("Error in founding submenus");
         } else {
+          console.log(docs);
           res.send(docs);
         }
       });

@@ -150,3 +150,31 @@ ul li:hover {
   border: 1px solid silver;
   border-radius: 3px;
 }
+
+/* Carousel Start ---------------------- */
+
+#carousel .caroUpload {
+  border: 1px solid silver;
+  border-radius: 3px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#carousel .caroImages {
+  border: 1px solid silver;
+  border-radius: 3px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#caro .caroImage {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: auto;
+  margin: 10px;
+}
+
+/* Carousel End --------------------------- */

@@ -6,6 +6,7 @@
                 <li><a ng-href="#/menus">Menus</a></li>
                 <li><a ng-href="#/products">Products</a></li>
                 <li><a ng-href="#/user">User</a></li>
+                <li><a ng-href="#/carousel">Carousel</a></li>
             </ul>
         </nav>
     </div>
@@ -16,52 +17,52 @@
                     <table>
                         <tr>
                             <td>
-                                <input type="text" class="input name" placeholder="Enter Product Name" ng-model="proTitle">
+                                <input type="text" class="input name" placeholder="Enter Product Name" name="title">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input type="number" class="price" placeholder="Price" ng-model="proPrice">
-                                <input type="number" class="discount" placeholder="Discount" ng-model="proDiscount">
+                                <input type="number" class="price" placeholder="Price" name="price">
+                                <input type="number" class="discount" placeholder="Discount" name="discount">
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <input type="text" class="pincodes input" placeholder="Delivery Available Pincodes (Ex: 110093,110095)"
-                                    ng-model="proAvailablity">
+                                    name="availability">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <textarea class="description" cols="60" rows="6" maxlength="250" ng-model="proDescription"
+                                <textarea class="description" cols="60" rows="6" maxlength="250" name="description"
                                     placeholder="Enter Description Here (Max 250 Words)"></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input type="file" name="Image_1">
-                                <input type="file" name="Image_2">
+                                <input class="button" type="file" name="Image_1">
+                                <input class="button" type="file" name="Image_2">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input type="file" name="Image_3">
-                                <input type="file" name="Image_4">
+                                <input class="button" type="file" name="Image_3">
+                                <input class="button" type="file" name="Image_4">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <textarea class="specification" cols="80" rows="20" maxlength="550" ng-model="proSpecification"
+                                <textarea class="specification" cols="80" rows="20" maxlength="550" name="specification"
                                     placeholder="Enter Product Specification in Details (Max 500 Words)"></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <select class="selectmenu" ng-model="mainmenu" ng-options="menu.menu for menu in allmenus"
-                                    ng-change="getSubMenus(mainmenu.menu)">
+                                <select class="selectmenu" name="menu" ng-model="mainmenu" ng-change="getSubMenus(this.mainmenu)">
                                     <option value="" ng-selected="true">Select Main Menu</option>
+                                    <option value="{{menu.menu}}" ng-repeat="menu in allmenus">{{menu.menu}}</option>
                                 </select>
-                                <select class="selectmenu" ng-model="submenu">
+                                <select class="selectmenu" name="submenu" ng-model="submenu">
                                     <option value="" ng-selected="true">Select Sub Menu</option>
                                     <option value="{{submenu.name}}" ng-repeat="submenu in submenus">{{submenu.name}}</option>
                                 </select>
@@ -70,16 +71,17 @@
                         <tr>
                             <td>
                                 <p>Trusted</p>
-                                <input type="radio" ng-model="trusted" ng-value="true" value="true"> Yes
+                                <input type="radio" name="trusted" ng-model="proDetails.trusted" ng-value="true" value="true">
+                                Yes
                                 <br>
-                                <input type="radio" ng-model="trusted" ng-value="false" value="false">
+                                <input type="radio" name="trusted" ng-model="proDetails.trusted" ng-value="false" value="false">
                                 No <br>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <br>
-                                <input type="submit" class="button" ng-click="addProduct()" value="Add Product">
+                                <input type="submit" class="button" value="Add Product">
                             </td>
                         </tr>
                     </table>

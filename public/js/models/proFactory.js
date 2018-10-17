@@ -3,16 +3,17 @@ app.factory("proFactory", [
   "$q",
   ($http, $q) => {
     const object = {
-      addNewProduct(proDetails) {
-        console.log("proFactory ", proDetails);
-        $http.post("/pro/addnewproduct", proDetails).then(
+      getAllSubMenus(mainmenuObject) {
+        let defer = $q.defer();
+        $http.post("/getallsubmenus", mainmenuObject).then(
           res => {
-            console.log("proDetails posted");
+            defer.resolve(res);
           },
           err => {
-            console.log("Error in posting proDetails", err);
+            defer.reject(err);
           }
         );
+        return defer.promise;
       },
       test() {
         const arbaz = {

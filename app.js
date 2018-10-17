@@ -1,8 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const menuroutes = require("./routes/menuroutes");
+const menuroutes = require("./routes/menuRoutes");
 const proRoutes = require("./routes/proRoutes");
+const caroRoutes = require("./routes/caroRoutes");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 
 app.use("/", menuroutes);
 app.use("/pro", proRoutes);
+app.use("/caro", caroRoutes);
 
 app.use(express.static(path.join(__dirname, "public")));
 

@@ -1,0 +1,48 @@
+<div id="container">
+    <div class="nav">
+        <nav>
+            <ul>
+                <li><a ng-href="#/">Home</a></li>
+                <li><a ng-href="#/menus">Menus</a></li>
+                <li><a ng-href="#/products">Products</a></li>
+                <li><a ng-href="#/user">User</a></li>
+                <li><a ng-href="#/carousel">Carousel</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="content">
+        <h1>Carousel Section</h1>
+        <div id="carousel">
+            <div class="caroUpload">
+                <form action="/caro/addnewimage" method="post" enctype="multipart/form-data">
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Add new image to carousel</p>
+                                <input class="button" type="file" name="carousel">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="button" type="submit" value="Add">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <br>
+            <div class="caroImages">
+                <p>Get all images of Carousel</p>
+                <button class="button" ng-click="getAllCarouselImages()">Get All Images</button>
+            </div>
+            <div id="caro">
+                <p>{{caroInfo}}</p>
+                <div class="caroimg" ng-repeat="image in images">
+                    <img src="{{image.imageUrl}}" class="caroImage" alt="{{image.name}}">
+                    <button class="button" ng-click="DeleteCarouselImage(image._id,image.file)">Remove Image</button>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,6 +18,10 @@ app.config([
       .when("/user", {
         templateUrl: "../views/user.html"
       })
+      .when("/carousel", {
+        templateUrl: "../views/carousel.html",
+        controller: "caroController"
+      })
       .otherwise({
         templateUrl: "../views/404.html"
       });
